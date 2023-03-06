@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <script src="../script/jquery.js" type="text/javascript"></script>
+        <script src="../script/common/Random.js" type="text/javascript"></script>
+        
+        <link rel="stylesheet" href="../css/index.css">
+
+        <title>Poker Wordle</title>
+    </head>
+
+    <body>
+        <section id="table-section">
+            <div id="table"></div>
+            <div id="used-card-wrapper"></div>
+        </section>
+
+        <section id="guess-section">
+            <div id="guess-selection-wrapper">
+                <div id="guess-face-wrapper">
+                    <button id="guess-face-red" class="button color-red">Red</button>
+                    <button id="guess-face-black" class="button">Black</button>
+                    <button id="guess-face-D" class="button color-red face">♦</button>
+                    <button id="guess-face-S" class="button face">♣</button>
+                    <button id="guess-face-H" class="button color-red face">♥</button>
+                    <button id="guess-face-C" class="button face">♠</button>
+                    <button id="guess-face-any" class="button">Any</button>
+                </div>
+                <div id="guess-rank-wrapper">
+                    <button id="guess-rank-any" class="button">Any</button>
+                    <button id="guess-rank-even" class="button">Even</button>
+                    <button id="guess-rank-odd" class="button">Odd</button>
+                    <button id="guess-rank-number" class="button">Number</button>
+                    <button id="guess-rank-notNumber" class="button">Not Number</button>
+                </div>
+            </div>
+
+            <div>
+                <button id="btnGuess" class="button">Guess</button>
+                <i id="guess-result" class="fas"></i>
+            </div>
+        </section>
+
+        <div id="poker-card-wrapper"></div>
+    </body>
+
+    <!-- tamplate -->
+    <template id="poker-card-template">
+        <div class="flex flex-direction-column">
+            <div class="poker-card">
+                <div class="poker-rank-ul width100"></div>
+                <div class="poker-face width100"></div>
+                <div class="flex justify-content-space-between align-items-center width100">
+                    <i class="match far"></i>
+                    <div class="poker-rank-br width100"></div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <script src="../script/index.js" type="text/javascript"></script>
+</html>

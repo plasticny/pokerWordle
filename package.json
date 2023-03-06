@@ -1,0 +1,19 @@
+{
+  "name": "pokerwordle",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-sass": "sass --watch src/web/scss:src/web/css"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.1.1",
+    "express": "^4.18.1",
+    "express-session": "^1.17.3",
+    "sass": "^1.52.2",
+    "uuid": "^8.3.2"
+  }
+}

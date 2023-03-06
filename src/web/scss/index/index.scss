@@ -1,0 +1,251 @@
+@use "../common/common";
+
+@import "fontawesome.css";
+
+
+@media all /* game console */ {
+    body {
+        width: 100%;
+        margin: 0px;
+        height: 100%;
+        overflow: hidden;
+        position: relative;
+        background-color: rgb(57 57 67);
+    }
+}
+
+@media all /* guess section */ {
+    #guess-section {
+        @extend %fixed-hor-center;
+        position: fixed;
+        bottom: 220px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    #guess-selection-wrapper {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 5px;
+
+        > div {
+            display: flex;
+            width: fit-content;
+            padding: 5px;
+            background-color: rgb(226 222 222);
+            border: 3px #684646 solid;
+
+            &#guess-rank-wrapper {
+                margin-left: 15px;
+            }
+
+            > button {
+                width: 100%;
+                min-width: fit-content;
+                margin-left: 5px;
+                margin-right: 5px;
+                border: 1px solid transparent;
+                font-size: 20px;
+                -webkit-transition: border 0.25s, background-color 0.25s;
+
+                &.face {
+                    font-size: 30px;
+                }
+
+                &:not(.color-red) {
+                    color: black;
+                }
+
+                &.selected {
+                    border: 1px solid black;
+                    border-radius: 5px;
+                    background-color: white;
+                }
+            }
+        }
+    }
+
+    #btnGuess {
+        width: 200px;
+        color: white;
+        font-size: 20px;
+        border: 1px solid grey;
+        text-transform: uppercase;
+        -webkit-transition: box-shadow 0.25s, 
+                            background-color 0.25s, 
+                            border  0.25s,
+                            width   0.25s,
+                            color   0.25s;
+
+        &:hover {
+            background-color: #c1b693;
+            border: 1px solid #3d3417;
+            color: black;
+            width: 220px;
+        }
+    }
+
+    #guess-result {
+        font-size: 20px;
+        margin-left: 10px;
+        
+        &.fa-check {
+            color: #95dc95;
+        }
+        &.fa-xmark {
+            color: #ff5050;
+        }
+    }
+}
+
+@media all /* card list */ {
+    #poker-card-wrapper {
+        @extend %fixed-hor-center;
+
+        bottom: 30px;
+        display: flex;
+        padding: 10px 0px;
+        position: absolute;
+        max-width: calc(80% + 30px);
+        overflow-x: auto;
+
+        > *:not(:last-child) {
+            margin-right: 10px;
+        }
+
+        &::-webkit-scrollbar {
+            height: 7px;
+            background-color: #101013;
+            border-radius: 9px;
+        }
+        &::-webkit-scrollbar-thumb {
+            height: 100%;
+            background-color: #5e5e88;
+            border-radius: 9px;
+            box-shadow: 0 0 9px black;
+        }
+    }
+}
+
+@media all /* poker card */ {
+
+    @media all /* common */ {
+        .poker-card {
+            width: 100px;
+            height: 140px;
+            border: 1px solid black;
+            padding: 5px;
+            display: flex;
+            user-select: none;
+            align-items: center;
+            border-radius: 5px;
+            flex-direction: column;
+            background-color: #ebecf4;
+        }        
+    
+    
+        %poker-rank {
+            height: fit-content;
+            font-size: 30px;
+            line-height: 1;
+        }
+        .poker-rank-ul {
+            @extend %poker-rank;
+            text-align: left;
+        }
+        .poker-rank-br {
+            @extend %poker-rank;
+            text-align: right;
+        }
+    
+    
+        .poker-face {
+            height: 100%;
+            display: flex;
+            font-size: 50px;
+            align-items: center;
+            justify-content: center;
+        }
+    
+        .match {
+            font-size: 25px;
+            text-align: center;
+        }
+    }
+
+    #poker-card-wrapper .poker-card {
+        filter: brightness(0.9);
+        box-shadow: 0 0 9px #404040;
+
+        &:hover {
+            cursor: pointer;
+            transform: translateY(-10px);
+        }
+    }
+
+    #used-card-wrapper .poker-card {
+        filter: brightness(0.9);
+        transform: rotate(var(--rot_deg));
+        margin-right: 5px;
+        margin-left: 5px;
+        animation: placeCard;
+        animation-duration: 0.25s;
+
+        @keyframes placeCard {
+            0% {
+                opacity: 0;
+                transform:  translateY(5px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0px);
+                transform: rotate(var(--rot_deg));
+            }
+        }
+    }
+}
+
+@media all /* table */ {
+    #table-section {
+        @extend %fixed-center;
+
+        transform: translate(-50%, calc(-50% - 35px));
+        width: 80%;
+        height: fit-content;
+        padding: 15px;
+        padding-top: 0px;
+        max-width: 1225px;
+        min-height: 37.87vh;
+        position: absolute;
+        display: flex;
+        align-items: center;
+    }
+
+    #table {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        filter: brightness(0.8);
+        border: 1px solid black;
+        position: absolute;
+        background: #d3bda1;
+        box-shadow: -12px 10px 14px 0px #0000002e;
+        background-size: 100% 367px;
+        background-image: url(../asset/image/wood-texture.png);
+        background-repeat: repeat-y;
+        background-position-y: -50px;
+    }
+
+    #used-card-wrapper {
+        width: 100%;
+        height: fit-content;
+        display: flex;
+        flex-wrap: wrap;
+
+        > * {
+            margin-top: 15px;
+        }
+    }
+}
